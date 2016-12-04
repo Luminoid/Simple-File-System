@@ -330,7 +330,7 @@ int fs_write(int fildes, void *buf, size_t nbyte)
         block_count++;
     }
 
-    /* write into the new blocks */
+    /* write into new blocks */
     strcpy(block, "");
     while(write_count < (int)nbyte && write_count < strlen(src)) {
         block_index = find_free_block(file_index);
@@ -422,7 +422,7 @@ int fs_truncate(int fildes, off_t length)
         block_index = find_next_block(block_index, file_index);
     }
 
-    /* file information */
+    /* modify file information */
     file->size = (int)length;
     file->num_blocks = new_block_num;
 
